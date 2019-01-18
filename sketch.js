@@ -1,6 +1,4 @@
-var xc, yc, bubble, n, namei, title;
-// Antoine, Bjork, Christine, Dalu, Evua, Faramir, Gorax, Helga, Irex, Jotun, Kalus, Lilian, Mulan, Nektann, Osmond, Philip, Quinticious, Radagast, Slivel, Tarix, Uxar, Vezon, William, Xatha, Yeet, Zaktan
-// Angry, Brutal, Careless, Devilish, Eloquent, Fiery, Great, Hungry, Icy, Jolly, Keen, Lively, Magnificent, Nasty, Overbearing, Pitiful, Quixotic, Radiant, Sly, Terrible, Ultimate, Very Good at Fighting, Xenodochial, Yoten, Zealous
+var xc, yc, bubble, n, namei, title, PA;
 
 function setup() {
 	createCanvas(800, 700);
@@ -8,15 +6,17 @@ function setup() {
 	xc = width/2;
 	yc = height/2;
 	n = 0;
+	PA = '  ';
 	bubble = [];
 	namei = ['Antoine', 'Bjork', 'Christine', 'Dalu', 'Evua', 'Faramir', 'Gorax', 'Helga', 'Irex', 'Jotun', 'Kalus', 'Lilian', 'Mulan', 'Nektann', 'Osmond', 'Philip', 'Quinticious', 'Radagast', 'Slivel', 'Tarix', 'Uxar', 'Vezon', 'William', 'Xatha', 'Yeet', 'Zaktan'];
-	title = ['Angry', 'Brutal', 'Careless', 'Devilish', 'Eloquent', 'Fiery', 'Great', 'Hungry', 'Icy', 'Jolly', 'Keen', 'Lively', 'Magnificent', 'Nasty', 'Overbearing', 'Pitiful', 'Quixotic', 'Radiant', 'Sly', 'Terrible', 'Ultimate', 'Very Good at Fighting', 'Xenodochial', 'Yoten', 'Zealous'];
+	title = ['Angry', 'Brutal', 'Careless', 'Devilish', 'Eloquent', 'Fiery', 'Great', 'Hungry', 'Icy', 'Jolly', 'Keen', 'Lively', 'Magnificent', 'Nasty', 'Overbearing', 'Pitiful', 'Quixotic', 'Radiant', 'Sly', 'Terrible', 'Ultimate', 'Very Good at Fighting', 'Xenodochial', 'Youthful', 'Zealous'];
 	ellipseMode(RADIUS);
 	angleMode(DEGREES);
 }
 
 function draw() {
 	background(0);
+	killfeed();
 	for (var i = 0; i < n; i++) {
 		if (bubble[i].spawn === 1) {
 			bubble[i].display();
@@ -29,8 +29,20 @@ function draw() {
 
 function mousePressed() {
 	bubble[n] = new newBubble();
-	print(bubble[n].tag+' has entered the arena!');
+	PA = bubble[n].tag+' has entered the arena!'
 	n++;
+}
+
+function killfeed() {
+	strokeWeight(5);
+	stroke(255, 50, 50);
+	fill(0);
+	rect(0, 0, width, 40)
+	textAlign(CENTER);
+	textSize(30);
+	fill(255);
+	noStroke();
+	text(PA, xc, 30);
 }
 
 function newBubble()  {
@@ -98,7 +110,7 @@ function newBubble()  {
 	this.deathcheck = function(I) {
 		if (this.hp < 0) {
 			this.spawn = 0;
-			print(this.attackertag+' has slain '+this.tag+'!');
+			PA = this.attackertag+' has slain '+this.tag+'!';
 		}
 	}
 }
