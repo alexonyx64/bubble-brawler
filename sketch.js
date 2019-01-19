@@ -2,11 +2,7 @@
 var xc, yc;		//positional coordinates
 var bubble, n;		//fighter object array
 var namei, title, PA;		//kill feed
-var regen, music;		//options bar HTML elements
-
-function preload() {		//preload music
-	music = loadSound('slammin.mp3');
-}
+var regen;		//options bar HTML elements
 
 function setup() {		//setup
 	createCanvas(800, 700);		//setting up space
@@ -24,14 +20,10 @@ function setup() {		//setup
 	rgtoggle = createCheckbox('health regeneration', false);		//health regen toggle
 	rgtoggle.position(0, height-rgtoggle.height);
 	rgtoggle.changed(rgoption);
-	musictoggle = createCheckbox('music', true);		//music toggle
-	musictoggle.position(150, height-musictoggle.height);
-	musictoggle.changed(epicoption);
 			//kill feed fighter tag construction arrays
 	namei = ['Antoine', 'Bjork', 'Christine', 'Dalu', 'Evua', 'Faramir', 'Gorax', 'Helga', 'Irex', 'Jotun', 'Kalus', 'Lilian', 'Mulan', 'Nektann', 'Osmond', 'Philip', 'Quinticious', 'Radagast', 'Slivel', 'Tarix', 'Uxar', 'Vezon', 'William', 'Xatha', 'Yeet', 'Zaktan'];
 	title = ['Angry', 'Brutal', 'Careless', 'Devilish', 'Eloquent', 'Fiery', 'Great', 'Hungry', 'Icy', 'Jolly', 'Keen', 'Lively', 'Magnificent', 'Nasty', 'Overbearing', 'Pitiful', 'Quixotic', 'Radiant', 'Sly', 'Terrible', 'Ultimate', 'Very Good at Fighting', 'Xenodochial', 'Youthful', 'Zealous'];
-			//music and kill feed initial setup
-	music.loop();
+			//kill feed initial setup
 	PA = 'Click!';
 }
 
@@ -153,13 +145,5 @@ function rgoption() {		//health regen toggle
 		regen = 1
 	} else {
 		regen = 0
-	}
-}
-
-function epicoption() {		//music toggle
-	if (this.checked()) {
-		music.loop();
-	} else {
-		music.stop();
 	}
 }
