@@ -1,7 +1,7 @@
 //declare all global variables
 var xc, yc;		//positional coordinates
 var bubble, n;		//fighter object array
-var namei, title, PA;		//kill feed
+var namei, title, pa;		//kill feed
 var regen;		//options bar HTML elements
 
 function setup() {		//setup
@@ -24,7 +24,7 @@ function setup() {		//setup
 	namei = ['Antoine', 'Bjork', 'Christine', 'Dalu', 'Evua', 'Faramir', 'Gorax', 'Helga', 'Irex', 'Jotun', 'Kalus', 'Lilian', 'Mulan', 'Nektann', 'Osmond', 'Philip', 'Quinticious', 'Radagast', 'Slivel', 'Tarix', 'Uxar', 'Vezon', 'William', 'Xatha', 'Yeet', 'Zaktan'];
 	title = ['Angry', 'Brutal', 'Careless', 'Devilish', 'Eloquent', 'Fiery', 'Great', 'Hungry', 'Icy', 'Jolly', 'Keen', 'Lively', 'Magnificent', 'Nasty', 'Overbearing', 'Pitiful', 'Quixotic', 'Radiant', 'Sly', 'Terrible', 'Ultimate', 'Very Good at Fighting', 'Xenodochial', 'Youthful', 'Zealous'];
 			//kill feed initial setup
-	PA = 'Click!';
+	pa = 'Click!';
 }
 
 function draw() {		//draw function
@@ -50,7 +50,7 @@ function draw() {		//draw function
 function mousePressed() {		//bubble spawn function
 	if (mouseY < height-rgtoggle.height) {
 			bubble[n] = new newBubble();
-			PA = bubble[n].tag+' has entered the arena!';		//kill feed notification
+			pa = bubble[n].tag+' has entered the arena!';		//kill feed notification
 			n++;
 	}
 }
@@ -134,7 +134,7 @@ function newBubble()  {		//bubble object
 	this.deathcheck = function(I) {		//death check and death event
 		if (this.hp < 0) {
 			this.spawn = 0;		//marks bubble as dead so they don't affect other bubbles
-			PA = this.attackertag+' has slain '+this.tag+'!';		//kill feed notification
+			pa = this.attackertag+' has slain '+this.tag+'!';		//kill feed notification
 		}
 	}
 }
