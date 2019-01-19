@@ -6,7 +6,7 @@ var regen;		//options bar HTML elements
 
 function setup() {		//setup
 	createCanvas(800, 700);		//setting up space
-	background(0)
+	background(0);
 	xc = width/2;
 	yc = height/2;
 			//basic graphics setup
@@ -31,7 +31,7 @@ function draw() {		//draw function
 	background(0);		//arena graphics
 	killfeed();
 	fill(0, 225, 100);
-	rect(0, height-rgtoggle.height, width, rgtoggle.height)
+	rect(0, height-rgtoggle.height, width, rgtoggle.height);
 	for (var i = 0; i < n; i++) {		//bubble graphics and interaction checks
 		if (bubble[i].spawn === 1) {
 			bubble[i].display();
@@ -50,7 +50,7 @@ function draw() {		//draw function
 function mousePressed() {		//bubble spawn function
 	if (mouseY < height-rgtoggle.height) {
 			bubble[n] = new newBubble();
-			PA = bubble[n].tag+' has entered the arena!'		//kill feed notification
+			PA = bubble[n].tag+' has entered the arena!';		//kill feed notification
 			n++;
 	}
 }
@@ -59,7 +59,7 @@ function killfeed() {		// kill feed graphics
 	strokeWeight(5);
 	stroke(255, 50, 50);
 	fill(0);
-	rect(0, 0, width, 40)
+	rect(0, 0, width, 40);
 	textAlign(CENTER);
 	textSize(30);
 	fill(255);
@@ -125,7 +125,6 @@ function newBubble()  {		//bubble object
 					if (dist(this.x, this.y, bubble[j].x, bubble[j].y) < this.radius+bubble[j].radius){
 						this.hp = this.hp-bubble[j].pow;
 						this.attackertag = bubble[j].tag;		//attacker tracking function; for the kill feed
-						//hitsound.play();
 					}
 				}
 			}
@@ -142,8 +141,8 @@ function newBubble()  {		//bubble object
 
 function rgoption() {		//health regen toggle
 	if (this.checked()) {
-		regen = 1
+		regen = 1;
 	} else {
-		regen = 0
+		regen = 0;
 	}
 }
